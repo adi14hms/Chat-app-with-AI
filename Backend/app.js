@@ -1,7 +1,8 @@
 import express, { urlencoded } from 'express';
 import morgan from 'morgan';
 import connect from './db/db.js';
-import userroutes from './routes/user.routes.js';
+import userRoutes from './routes/user.routes.js';
+import projectRoutes from './routes/project.routes.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 
@@ -15,7 +16,8 @@ app.use(express.json());
 app.use(urlencoded({ extended: true }));    // Parse URL-encoded bodies
 app.use(cookieParser());    // Parse cookie data
 
-app.use('/users', userroutes);  // Add the user routes to the app
+app.use('/users', userRoutes);  // Add the user routes to the app
+app.use('/projects', projectRoutes);  // Add the project routes to the app
 
 
 
